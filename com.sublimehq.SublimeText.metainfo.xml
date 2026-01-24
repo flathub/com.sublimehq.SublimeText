@@ -4,7 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LicenseRef-proprietary=https://www.sublimetext.com/eula</project_license>
   <name>Sublime Text</name>
-  <summary>Sophisticated text editor for code, markup and prose</summary>
+  <summary>Text Editing, Done Right</summary>
   <developer id="com.sublimehq">
     <name translate="no">Sublime HQ Pty Ltd</name>
   </developer>
@@ -19,16 +19,21 @@
       and markup languages, search and replace with support for regular expressions,
       an integrated terminal/console window, and customizable themes.
     </p>
+    <p>
+      Sublime Text may be downloaded and evaluated for free, however a license must be purchased for
+      continued use. There is currently no enforced time limit for the evaluation.
+    </p>
   </description>
   <launchable type="desktop-id">com.sublimehq.SublimeText.desktop</launchable>
   <branding>
     <color type="primary" scheme_preference="light">#ff9900</color>
-    <color type="primary" scheme_preference="dark">#241500</color>
+    <color type="primary" scheme_preference="dark">#e68a00</color>
   </branding>
   <content_rating type="oars-1.1">
     <content_attribute id="money-purchasing">intense</content_attribute>
   </content_rating>
   <url type="homepage">https://www.sublimetext.com/</url>
+  <url type="bugtracker">https://github.com/flathub/com.sublimehq.SublimeText/issues</url>
   <url type="help">https://forum.sublimetext.com/</url>
   <screenshots>
     <screenshot type="default">
@@ -53,7 +58,7 @@
           the Blog post for more details.
         </p>
 
-        <p>New Features and Improvements</p>
+        <p>New Features and Improvements :</p>
         <ul>
           <li>Sidebar can now be moved to the right side using the "sidebar_on_right" setting.</li>
           <li>Build systems can now optionally have an input box by using "interactive": true.</li>
@@ -79,7 +84,7 @@
             Selection.has_multiple_non_empty_regions.</li>
         </ul>
 
-        <p>Fixes</p>
+        <p>Fixes :</p>
         <ul>
           <li>Fixed wrap_lines command not understanding newer ruler settings.</li>
           <li>Fixed bookmarks not toggling at EOF.</li>

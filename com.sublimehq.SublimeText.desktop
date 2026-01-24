@@ -9,6 +9,7 @@ Terminal=false
 MimeType=text/plain;
 Icon=com.sublimehq.SublimeText
 Categories=Development;Utility;
+Keywords=development;programming;editor;code;sublime;text;
 StartupNotify=true
 StartupWMClass=sublime_text
 X-KDE-StartupWMClass=sublime_text
