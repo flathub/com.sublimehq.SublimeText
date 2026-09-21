@@ -7,61 +7,61 @@ sdk: org.freedesktop.Sdk
 
 separate-locales: false
 finish-args:
-- --share=ipc
-- --share=network
-- --device=dri
-- --socket=wayland
-- --socket=fallback-x11
-- --talk-name=org.gnome.SettingsDaemon
-- --filesystem=host
+  - --share=ipc
+  - --share=network
+  - --device=dri
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --talk-name=org.gnome.SettingsDaemon
+  - --filesystem=host
 
 modules:
-- name: sublime
-  buildsystem: simple
-  sources:
-  - type: script
-    dest-filename: apply_extra
-    commands:
-    - mkdir -p extract
-    - tar -xJf sublime.tar.xz -C extract
-    - mv extract/sublime_text ./
-    - rm -rf extract sublime.tar.xz
-  - type: script
-    dest-filename: subl
-    commands:
-    - exec /app/extra/sublime_text/sublime_text --fwdargv0 "$0" "$@"
-  - type: extra-data
-    only-arches: [ x86_64 ]
-    filename: sublime.tar.xz
-    url: https://download.sublimetext.com/sublime_text_build_4200_x64.tar.xz
-    sha256: 36f69c551ad18ee46002be4d9c523fe545d93b67fea67beea731e724044b469f
-    size: 16340980
-    x-checker-data:
-      type: html
-      url: https://www.sublimetext.com/download_thanks
-      version-pattern: https://download.sublimetext.com/sublime_text_build_([\d\.-]*)_x64.tar.xz
-      url-template: https://download.sublimetext.com/sublime_text_build_${version}_x64.tar.xz
-  - type: extra-data
-    only-arches: [ aarch64 ]
-    filename: sublime.tar.xz
-    url: https://download.sublimetext.com/sublime_text_build_4200_arm64.tar.xz
-    sha256: cf4b6aa74ea2a2aab02e144599cf9e4a423cbb9543c221f7da1095a95495566a
-    size: 15743920
-    x-checker-data:
-      type: html
-      url: https://www.sublimetext.com/download_thanks
-      version-pattern: https://download.sublimetext.com/sublime_text_build_([\d\.-]*)_arm64.tar.xz
-      url-template: https://download.sublimetext.com/sublime_text_build_${version}_arm64.tar.xz
-  - type: file
-    path: com.sublimehq.SublimeText.desktop
-  - type: file
-    path: com.sublimehq.SublimeText.metainfo.xml
-  - type: file
-    path: com.sublimehq.SublimeText-256.png
-  build-commands:
-  - mkdir -p /app/lib
-  - install -Dm755 apply_extra -t /app/bin
-  - install -Dm755 subl /app/bin/subl
-  - install -Dm644 ${FLATPAK_ID}.desktop /app/share/applications/${FLATPAK_ID}.desktop
-  - install -Dm644 ${FLATPAK_ID}.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
-  - install -Dm644 ${FLATPAK_ID}-256.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
+  - name: sublime
+    buildsystem: simple
+    sources:
+      - type: script
+        dest-filename: apply_extra
+        commands:
+          - mkdir -p extract
+          - tar -xJf sublime.tar.xz -C extract
+          - mv extract/sublime_text ./
+          - rm -rf extract sublime.tar.xz
+      - type: script
+        dest-filename: subl
+        commands:
+          - exec /app/extra/sublime_text/sublime_text --fwdargv0 "$0" "$@"
+      - type: extra-data
+        only-arches: [x86_64]
+        filename: sublime.tar.xz
+        url: https://download.sublimetext.com/sublime_text_build_4213_x64.tar.xz
+        sha256: 96194272442f89ae15d13a6c9118d7903578b5789ab8874b867558aa6e9145a9
+        size: 22296256
+        x-checker-data:
+          type: html
+          url: https://www.sublimetext.com/download_thanks
+          version-pattern: https://download.sublimetext.com/sublime_text_build_([\d\.-]*)_x64.tar.xz
+          url-template: https://download.sublimetext.com/sublime_text_build_${version}_x64.tar.xz
+      - type: extra-data
+        only-arches: [aarch64]
+        filename: sublime.tar.xz
+        url: https://download.sublimetext.com/sublime_text_build_4213_arm64.tar.xz
+        sha256: e15f47ef143e0b22e5dc29cfac06a63f9646657a7af98e8ebf2975a6bc53e8f1
+        size: 21556620
+        x-checker-data:
+          type: html
+          url: https://www.sublimetext.com/download_thanks
+          version-pattern: https://download.sublimetext.com/sublime_text_build_([\d\.-]*)_arm64.tar.xz
+          url-template: https://download.sublimetext.com/sublime_text_build_${version}_arm64.tar.xz
+      - type: file
+        path: com.sublimehq.SublimeText.desktop
+      - type: file
+        path: com.sublimehq.SublimeText.metainfo.xml
+      - type: file
+        path: com.sublimehq.SublimeText-256.png
+    build-commands:
+      - mkdir -p /app/lib
+      - install -Dm755 apply_extra -t /app/bin
+      - install -Dm755 subl /app/bin/subl
+      - install -Dm644 ${FLATPAK_ID}.desktop /app/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 ${FLATPAK_ID}.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 ${FLATPAK_ID}-256.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
