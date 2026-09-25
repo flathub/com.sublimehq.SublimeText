@@ -47,10 +47,95 @@
   </screenshots>
   <releases>
     <release version="4215" date="2026-09-25">
-      <description></description>
+      <description>
+        <ul>
+          <li>Fixed vintage "M" command not working</li>
+          <li>Worked around issue where non-ascii text was being escaped under GNOME/Wayland</li>
+          <li>Worked around issue with drag-drop mime types under GNOME/Wayland</li>
+        </ul>
+      </description>
     </release>
     <release version="4213" date="2026-09-21">
-      <description/>
+      <url type="details">https://www.sublimetext.com/blog/articles/sublime-text-4213</url>
+      <description>
+        <p>
+          Sublime Text now ships with Python 3.14 and Python 3.3. Python 3.3 is disabled by default
+          and will be removed in a future version. If you're experiencing plugin compatibility
+          issues you can re-enable 3.3 using the setting "disable_plugin_host_3.3": false.
+        </p>
+        <p>New Features and Improvements</p>
+        <ul>
+          <li>Upgraded Python 3.8 to Python 3.14</li>
+          <li>Python 3.3 is now disabled by default</li>
+          <li>Various
+            syntax highlighting improvements</li>
+          <li>Newly rewritten C# syntax highlighting thanks to
+            deathaxe</li>
+          <li>Added file icon themes. See the documentation</li>
+          <li>Added "open_terminal" command for opening external terminal emulators</li>
+          <li>Scope selectors can now use ">" to explicitly match child scopes Improved performance
+            when saving many
+            files</li>
+          <li>Improved performance of git status Improved tab dragging behavior while using
+            "enable_tab_scrolling"</li>
+          <li>Undo/redo history is no longer restored when the
+            file has changed on disk</li>
+          <li>Fine tuned fuzzy matching logic to improve sorting in some cases</li>
+          <li>Added support for git reftables Improved join line behavior with right-brackets</li>
+          <li> Improved
+            ruler position when using a proportional font</li>
+          <li>Added "io_workers" setting </li>
+        </ul>
+        <p>API</p>
+        <ul>
+          <li>Improved type hints</li>
+          <li>Added "Sheet.name()" and "Sheet.set_name()" for all sheet types</li>
+          <li>Added "sublime.lib_path()" function</li>
+          <li>"sublime.load_resource" will now throw "FileTooLarge" when the resource
+            exceeds size limits</li>
+          <li>"sublime.load_resource" can now be passed a "max_size" parameter</li>
+          <li>Fixed "find_syntax_for_file" not handling paths on Windows</li>
+          <li>Fixed some edge cases when using "NewFileFlags.REPLACE_MRU"</li>
+          <li>Fixed "View.syntax()" returning "None" with specific syntaxes</li>
+          <li>Fixed command names not being snake_cased correctly</li>
+          <li>Fixed initialization when multi-inheriting classes</li>
+        </ul>
+        <p>Linux</p>
+        <ul>
+          <li>Fixed modal dialogs blocking all open windows</li>
+          <li>Fixed drag-state becoming stuck after dragging text from chrome</li>
+          <li>Fixed incorrectly setting selection clipboard when multiple sheets are selected</li>
+          <li>Fixed modifier keys persisting after window close</li>
+          <li>Fixed KDE "alternate characters" input method not working as expected</li>
+          <li>Fixed tab dragging under Wayland causing an air-drop when not intended</li>
+          <li>"PATH" is now respected when looking up "pkexec" and "gksudo"</li>
+        </ul>
+        <p>Fixes</p>
+        <ul>
+          <li>Fixed find-in-files not properly searching for folders starting with a dot</li>
+          <li>Fixed minimized windows popping up on quit</li>
+          <li>Fixed a case where "close_project" command corrupted the workspace file</li>
+          <li>Fixed "close_project" not closing windows when expected</li>
+          <li>Fixed a case where loading a project cleared the folder list</li>
+          <li>Fixed a false positive case in filesystem loop detection</li>
+          <li>Fixed sidebar resizing not working when sidebar is on the right and using non-integer
+            DPI scaling</li>
+          <li>Fixed the side bar selection not begin updating in some cases</li>
+          <li>Fixed an issue with sidebar focus when animations are disabled</li>
+          <li>Fixed sheets not being focused when double-clicking in the sidebar with
+            "preview_on_click" disabled</li>
+          <li>Fixed selection not being maintained when joining lines</li>
+          <li>Fixed caret disappearing when clicking off inline diffs</li>
+          <li>Fixed "select_lines" not scrolling to reveal the selection</li>
+          <li>Fixed <i>Close Unmodified Tabs</i> menu hiding when no tabs are modified</li>
+          <li>Fixed Goto Definition sometimes being scrolled incorrectly</li>
+          <li>Fixed "?" matching "/" in wildcards</li>
+          <li>Fixed file encoding not being restored for unsaved files</li>
+          <li>Fixed non-integer "default_font_size" being rounded</li>
+          <li>Fixed build system variable "path" not working</li>
+          <li>Fixed a syntax engine crash</li>
+        </ul>
+      </description>
     </release>
     <release version="4200" date="2025-05-21">
       <url type="details">https://www.sublimetext.com/blog/articles/sublime-text-4200</url>
