@@ -33,9 +33,9 @@ modules:
       - type: extra-data
         only-arches: [x86_64]
         filename: sublime.tar.xz
-        url: https://download.sublimetext.com/sublime_text_build_4213_x64.tar.xz
-        sha256: 96194272442f89ae15d13a6c9118d7903578b5789ab8874b867558aa6e9145a9
-        size: 22296256
+        url: https://download.sublimetext.com/sublime_text_build_4215_x64.tar.xz
+        sha256: c153f418d3ab26b90ecce8c02a82e4e961025ed7a65f7e25060a5457d43e88d9
+        size: 22300732
         x-checker-data:
           type: html
           url: https://www.sublimetext.com/download_thanks
@@ -44,9 +44,9 @@ modules:
       - type: extra-data
         only-arches: [aarch64]
         filename: sublime.tar.xz
-        url: https://download.sublimetext.com/sublime_text_build_4213_arm64.tar.xz
-        sha256: e15f47ef143e0b22e5dc29cfac06a63f9646657a7af98e8ebf2975a6bc53e8f1
-        size: 21556620
+        url: https://download.sublimetext.com/sublime_text_build_4215_arm64.tar.xz
+        sha256: d314665a4272f33551503432372a34516dbb5a9a12dce2a47042c1942f66ee79
+        size: 21568308
         x-checker-data:
           type: html
           url: https://www.sublimetext.com/download_thanks
