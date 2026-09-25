@@ -127,7 +127,7 @@
           <li>Fixed selection not being maintained when joining lines</li>
           <li>Fixed caret disappearing when clicking off inline diffs</li>
           <li>Fixed "select_lines" not scrolling to reveal the selection</li>
-          <li>Fixed <i>Close Unmodified Tabs</i> menu hiding when no tabs are modified</li>
+          <li>Fixed "Close Unmodified Tabs" menu hiding when no tabs are modified</li>
           <li>Fixed Goto Definition sometimes being scrolled incorrectly</li>
           <li>Fixed "?" matching "/" in wildcards</li>
           <li>Fixed file encoding not being restored for unsaved files</li>
