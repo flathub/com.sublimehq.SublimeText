@@ -67,7 +67,7 @@ modules:
   - name: host-spawn
     buildsystem: simple
     build-commands:
-      - install -Dm755 host-spawn /app/bin/host-spawn
+      - install -Dm755 host-spawn-wrapper /app/bin/host-spawn
     sources:
       - type: extra-data
         filename: host-spawn
@@ -89,3 +89,9 @@ modules:
           type: rotating-url
           url: https://github.com/1player/host-spawn/releases/latest/download/host-spawn-aarch64
           pattern: https://github.com/1player/host-spawn/releases/download/v([0-9.]+)/host-spawn-aarch64
+      - type: script
+        dest-filename: host-spawn-wrapper
+        commands:
+          - mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}"
+          - install -m755 /app/extra/host-spawn "${XDG_CACHE_HOME:-$HOME/.cache}/host-spawn"
+          - exec "${XDG_CACHE_HOME:-$HOME/.cache}/host-spawn" "$@"
