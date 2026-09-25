@@ -1,9 +1,8 @@
-app-id: com.sublimehq.SublimeText
-command: subl
-
+id: com.sublimehq.SublimeText
 runtime: org.freedesktop.Sdk
-runtime-version: '25.08'
+runtime-version: "26.08"
 sdk: org.freedesktop.Sdk
+command: subl
 
 separate-locales: false
 finish-args:
@@ -18,18 +17,14 @@ finish-args:
 modules:
   - name: sublime
     buildsystem: simple
+    build-commands:
+      - mkdir -p /app/lib
+      - install -Dm755 apply_extra -t /app/bin
+      - install -Dm755 subl /app/bin/subl
+      - install -Dm644 ${FLATPAK_ID}.desktop /app/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 ${FLATPAK_ID}.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 ${FLATPAK_ID}-256.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
     sources:
-      - type: script
-        dest-filename: apply_extra
-        commands:
-          - mkdir -p extract
-          - tar -xJf sublime.tar.xz -C extract
-          - mv extract/sublime_text ./
-          - rm -rf extract sublime.tar.xz
-      - type: script
-        dest-filename: subl
-        commands:
-          - exec /app/extra/sublime_text/sublime_text --fwdargv0 "$0" "$@"
       - type: extra-data
         only-arches: [x86_64]
         filename: sublime.tar.xz
@@ -58,10 +53,14 @@ modules:
         path: com.sublimehq.SublimeText.metainfo.xml
       - type: file
         path: com.sublimehq.SublimeText-256.png
-    build-commands:
-      - mkdir -p /app/lib
-      - install -Dm755 apply_extra -t /app/bin
-      - install -Dm755 subl /app/bin/subl
-      - install -Dm644 ${FLATPAK_ID}.desktop /app/share/applications/${FLATPAK_ID}.desktop
-      - install -Dm644 ${FLATPAK_ID}.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
-      - install -Dm644 ${FLATPAK_ID}-256.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
+      - type: script
+        dest-filename: subl
+        commands:
+          - exec /app/extra/sublime_text/sublime_text --fwdargv0 "$0" "$@"
+      - type: script
+        dest-filename: apply_extra
+        commands:
+          - mkdir -p extract
+          - tar -xJf sublime.tar.xz -C extract
+          - mv extract/sublime_text ./
+          - rm -rf extract sublime.tar.xz
