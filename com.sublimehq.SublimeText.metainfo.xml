@@ -46,8 +46,11 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="4213" date="2026-09-21">
+    <release version="4215" date="2026-09-25">
       <description></description>
+    </release>
+    <release version="4213" date="2026-09-21">
+      <description/>
     </release>
     <release version="4200" date="2025-05-21">
       <url type="details">https://www.sublimetext.com/blog/articles/sublime-text-4200</url>
