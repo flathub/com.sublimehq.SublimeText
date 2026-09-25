@@ -64,3 +64,26 @@ modules:
           - tar -xJf sublime.tar.xz -C extract
           - mv extract/sublime_text ./
           - rm -rf extract sublime.tar.xz
+  - name: host-spawn
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 host-spawn /app/bin/host-spawn
+    sources:
+      - type: extra-data
+        dest-filename: host-spawn
+        url: https://github.com/1player/host-spawn/releases/download/v1.6.2/host-spawn-x86_64
+        sha256: 077bc09a087292447ba17cfe2156a93f71bf56c4c6be8e38d3abe65c1240f34c
+        only-arches: [x86_64]
+        x-checker-data:
+          type: rotating-url
+          url: https://github.com/1player/host-spawn/releases/latest/download/host-spawn-x86_64
+          pattern: https://github.com/1player/host-spawn/releases/download/v([0-9.]+)/host-spawn-x86_64
+      - type: extra-data
+        dest-filename: host-spawn
+        url: https://github.com/1player/host-spawn/releases/download/v1.6.2/host-spawn-aarch64
+        sha256: 8b30215b0b6b66c8c34a3e22d372dd39020295cd0904608bc2c5f5ecff829e5f
+        only-arches: [aarch64]
+        x-checker-data:
+          type: rotating-url
+          url: https://github.com/1player/host-spawn/releases/latest/download/host-spawn-aarch64
+          pattern: https://github.com/1player/host-spawn/releases/download/v([0-9.]+)/host-spawn-aarch64
